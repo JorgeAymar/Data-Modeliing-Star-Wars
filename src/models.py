@@ -11,7 +11,7 @@ Base = declarative_base()
 class Customers(Base): 
     __tablename__ = 'customers'
     # Here we define columns for the table.
-    CustomerID = Column(Integer, primary_key=True)
+    customerID = Column(Integer, primary_key=True)
     name = Column(String(250))
     email = Column(String(250), nullable=True)
     phonenumber = Column(String(100), nullable=True)
@@ -20,11 +20,11 @@ class Customers(Base):
 
 class Favoritos(Base): 
     __tablename__ = 'favoritos'
-    favortoID = Column(Integer, primary_key=True)
+    favoritoID = Column(Integer, primary_key=True)
     customer_ID = Column(Integer, ForeignKey('customers.customerID'))
     characterID = Column(Integer, ForeignKey('characters.characterID'))
     planetID = Column(Integer, ForeignKey('planets.olanetID'))
-    isActibe = Column(Boolean) 
+    isActive = Column(Boolean) 
     customer = relationship(Customers)
 
 class Characters(Base): 
